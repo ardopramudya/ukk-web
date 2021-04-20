@@ -1,0 +1,25 @@
+<%- include('../partials/header') %>
+<style>
+  .card {display:inline-block;}
+</style>
+<div class="container-fluid">
+  <h1 class="text-center bg-light mt-3">Daftar Buku</h1>
+  <a href="/buku/tambah" class="btn btn-success my-3">Tambah Buku</a>
+  <div class="row">
+    
+    <% data.forEach((buku, idx) => { %>
+      <div class="card mx-2 my-2" style="width: 18rem;">
+        <h5 class="card-title"><%= buku.judul  %></h5>
+        <img src="images/<%= buku.gambar %>" class="card-img-top" alt="..." style="max-height: 25rem;">
+        <div class="card-body">
+          <a href="/buku/ubah/<%= buku.id %>" class="btn btn-warning">Edit</a>
+          <a href="/buku/hapus/<%= buku.id %>" class="btn btn-danger">Hapus</a>
+        </div>
+      </div>
+
+      <% }) %>
+
+  </div>
+</div>
+
+<%- include('../partials/footer') %> 
